@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
       
       redirect_to movies_path(:sort => session[:sort], :ratings => session[:ratings])
     end
-    
+     
     if @rating.nil? 
        @ratings_to_show = @all_ratings
        @movies = Movie.with_ratings(@rating,@sort)
