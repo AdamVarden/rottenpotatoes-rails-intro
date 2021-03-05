@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
     end
     
     if @rating.nil? 
-       @ratings_to_show = []
+       @ratings_to_show = @all_ratings
        @movies = Movie.with_ratings(@rating,@sort)
 
     else
