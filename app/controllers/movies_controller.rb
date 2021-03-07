@@ -22,6 +22,7 @@ class MoviesController < ApplicationController
        @movies = Movie.with_ratings(@rating,@sort)
 
     else
+      # Extracts keys
       @ratings_to_show = @rating.keys
       @movies = Movie.with_ratings(@ratings_to_show,@sort)
     end
