@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
     @rating = params[:ratings]
     @all_ratings = Movie.all_ratings
     
+    # Checks if both params are empty but a previous session is saved
     if params[:sort].nil? and params[:ratings].nil? and (!session[:sort].nil? or !session[:ratings].nil?)
       
       redirect_to movies_path(:sort => session[:sort], :ratings => session[:ratings])
@@ -24,7 +25,7 @@ class MoviesController < ApplicationController
       @ratings_to_show = @rating.keys
       @movies = Movie.with_ratings(@ratings_to_show,@sort)
     end
-    
+    # Saves the session
     session[:ratings] = @rating
     session[:sort] = @sort
 

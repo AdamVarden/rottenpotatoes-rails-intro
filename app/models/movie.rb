@@ -5,9 +5,9 @@ class Movie < ActiveRecord::Base
   end
   
  def self.with_ratings(ratings_list,sort_by)
-
+    # If both sort and ratings are sent
     if ratings_list.present? and sort_by.present?
-      
+     
      if sort_by == 'title'
        Movie.where(rating: ratings_list).order(title: 'ASC')
      elsif sort_by == 'release_date'
